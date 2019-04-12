@@ -18,11 +18,16 @@ class ProductResource extends Resource
         return parent::toArray($request);
         */
         return [
+            'id' => $this->id,
             'name' => $this->name,
             'detail' => $this->detail,
             'price'=> $this->price,
             'stock' => $this->stock,
-            'discount'=> $this->discount
+            'discount'=> $this->discount,
+            'Resource' => 'Yes',
+            'href' => [
+               'review'=> route("reviews.index",$this->id)
+            ]
         ];
     }
 }
